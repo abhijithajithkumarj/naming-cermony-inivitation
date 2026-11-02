@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naming Ceremony Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true" hidden></div>
+<div class="bgfx" aria-hidden="true"></div>
+
+<div class="col">
+
+  <!-- COVER -->
+  <section class="cover" id="cover">
+    <p class="cap">Naming Ceremony</p>
+    <h1 class="sc rise">You are invited<br>to bless our<br>little one</h1>
+    <div class="envelope">
+      <svg width="100%" height="260" viewBox="0 0 374 260" preserveAspectRatio="none" aria-hidden="true">
+        <rect width="374" height="260" fill="#566342"/>
+        <path d="M0 0L187 140L374 0" fill="#667452" stroke="#8A9873"/>
+        <path d="M0 260L150 130M374 260L224 130" stroke="#8A9873" fill="none"/>
+      </svg>
+      <button class="seal" id="seal" type="button" aria-label="Tap to open the invitation">TAP</button>
+    </div>
+    <p class="t narrow">You did not receive this invitation by chance. It is a very special day for us, and we want you to be there.</p>
+  </section>
+
+  <main id="main" hidden>
+
+    <!-- PHOTO + DATE -->
+    <section class="photo">
+      <img class="kb" src="assets/images/family.jpg" alt="Parents kissing their newborn baby">
+      <div class="shade"></div>
+      <div class="photo-text">
+        <div><p class="cap"></p><p class="cap" style="margin-top:8px" data-bind="babyName"></p></div>
+        <div class="bigdate">
+          <i></i>
+          <span class="dd">00</span><span class="mon">---</span><span class="yy">00</span>
+          <i></i>
+        </div>
+        <p class="cap" data-bind="city">Thempammoodu</p>
+      </div>
+      <div class="scrollhint" aria-hidden="true"><span class="cap">Scroll</span><svg width="18" height="26" viewBox="0 0 18 26"><path d="M9 2v20M2 15l7 8 7-8"/></svg></div>
+    </section>
+
+    <!-- NAME CARD -->
+    <section class="sect">
+      <div class="namecard reveal">
+        <svg class="float line" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18"/><path d="M12 26c2-10 6-12 8-12s6 2 8 12M16 26h8"/></svg>
+        <p class="t" style="max-width:260px">With joy in our hearts we are happy to share the news: our little one is getting a name.</p>
+        <div class="smalldate"><span class="dd">00</span><span class="mon">---</span><span class="yy">00</span></div>
+      </div>
+    </section>
+
+    <!-- DEAR GUESTS -->
+    <section class="sect center">
+      <h2 class="sc reveal">Dear guests!</h2>
+      <p class="t reveal">On this magical day we welcome our little traveler into the world and invite you to share our joy, surrounded by family and the people closest to us.</p>
+      <div class="week reveal" id="week">
+        <span class="cap">Mo</span><span class="cap">Tu</span><span class="cap">We</span><span class="cap">Th</span><span class="cap">Fr</span><span class="cap">Sa</span><span class="cap">Su</span>
+      </div>
+    </section>
+
+    <!-- OUR STORY: scroll road map -->
+    <section class="story" id="story">
+      <h2 class="sc reveal">Our Story</h2>
+      <p class="t narrow reveal">Two paths that became one road. Keep scrolling to follow our journey.</p>
+      <div class="road" id="road">
+        <svg class="roadsvg" id="roadSvg" viewBox="0 0 430 1700" preserveAspectRatio="none" aria-hidden="true">
+          <g class="base" id="roadBase">
+            <path id="rbG" d="M105 250C105 360 215 400 215 520"/>
+            <path id="rbB" d="M325 250C325 360 215 400 215 520"/>
+            <path id="rbM" d="M215 520C215 620 235 660 235 760S195 900 195 1000S235 1140 235 1240S215 1380 215 1480S215 1620 215 1700"/>
+          </g>
+          <g class="prog" id="roadProg"></g>
+        </svg>
+
+        <div class="person him">
+          <svg class="line" viewBox="0 0 40 64" aria-hidden="true"><circle cx="20" cy="10" r="7"/><path d="M20 17v24M20 22l-11 10M20 22l11 10M20 41l-8 20M20 41l8 20"/></svg>
+          <span class="nm" data-bind="groomName">Arjun</span>
+          <p data-bind="groomAbout"></p>
+        </div>
+        <div class="person her">
+          <svg class="line" viewBox="0 0 40 64" aria-hidden="true"><circle cx="20" cy="10" r="7"/><path d="M20 17l-11 30h22zM20 21l-9 10M20 21l9 10M15 47v14M25 47v14"/></svg>
+          <span class="nm" data-bind="brideName">Anjana</span>
+          <p data-bind="brideAbout"></p>
+        </div>
+        <!-- milestones, dots and walking figures are added by script.js -->
+      </div>
+    </section>
+
+    <!-- VENUE -->
+    <section class="sect center">
+      <h2 class="sc reveal">Our Day</h2>
+      <svg class="reveal line" width="260" height="120" viewBox="0 0 260 120" aria-hidden="true"><path d="M10 110V50h240v60M10 50l120-34 120 34M110 110V70a20 20 0 0140 0v40M40 110V75a10 10 0 0120 0v35M200 110V75a10 10 0 0120 0v35M0 110h260"/></svg>
+      <p class="cap dim">Venue</p>
+      <p class="venue" data-bind="venue">[VENUE NAME]</p>
+      <p class="t narrow" data-bind="address">[Full address, city, PIN]</p>
+      <a class="btn full" id="mapBtn" href="#" target="_blank" rel="noopener">Open map</a>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-sect">
+      <h2 class="sc reveal" style="text-align:center;margin-bottom:10px">The Day</h2>
+      <div class="timeline">
+        <svg class="path" viewBox="0 0 430 820" preserveAspectRatio="none" aria-hidden="true"><path class="line draw" pathLength="1" d="M0 30C140 60 380 90 330 230S110 380 210 470 400 590 240 690 110 790 250 820"/></svg>
+
+        <div class="stop reveal" style="left:110px;top:70px">
+          <svg class="line" width="64" height="50" viewBox="0 0 64 50" aria-hidden="true"><path d="M6 8h22l-4 14c-1 4-4 6-7 6s-6-2-7-6zM17 28v16M10 44h14M38 12h20l-4 12c-1 4-4 5-6 5s-5-1-6-5zM48 29v15M42 44h12"/></svg>
+          <b>Guest arrival</b><span data-bind="tArrival">[TIME]</span>
+        </div>
+        <div class="stop reveal" style="left:230px;top:250px">
+          <svg class="line" width="56" height="50" viewBox="0 0 56 50" aria-hidden="true"><path d="M28 44C10 32 6 24 6 17a11 11 0 0122-3 11 11 0 0122 3c0 7-4 15-22 27z"/></svg>
+          <b>Naming ceremony</b><span data-bind="tCeremony">[TIME]</span>
+        </div>
+        <div class="stop reveal" style="left:60px;top:470px">
+          <svg class="line" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="24"/><circle cx="28" cy="28" r="14"/></svg>
+          <b>Blessings &amp; feast</b><span data-bind="tFeast">[TIME]</span>
+        </div>
+        <div class="stop reveal" style="left:215px;top:690px">
+          <svg class="line" width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><path d="M16 50V24h8v26M32 50V16h8v34M14 50h28M20 24c-3-4 0-8 0-8s3 4 0 8zM36 16c-3-4 0-8 0-8s3 4 0 8z"/></svg>
+          <b>Farewell</b><span data-bind="tFarewell">[TIME]</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN + ACTIONS -->
+    <section class="sect center">
+      <p class="cap reveal">Departure in</p>
+      <div class="timer reveal">
+        <div><strong id="cdD">0</strong><span class="cap">Days</span></div>
+        <div><strong id="cdH">00</strong><span class="cap">Hrs</span></div>
+        <div><strong id="cdM">00</strong><span class="cap">Min</span></div>
+        <div><strong id="cdS">00</strong><span class="cap">Sec</span></div>
+      </div>
+      <a class="btn full" id="calBtn" href="#" target="_blank" rel="noopener">Add to calendar</a>
+      <a class="btn full solid" id="waBtn" href="#" target="_blank" rel="noopener">RSVP on WhatsApp</a>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="sect center closing">
+      <img class="reveal" src="assets/images/dad.jpg" alt="Father holding his newborn baby">
+      <p class="t narrow reveal">Your presence and blessings will make this day even more memorable.</p>
+      <p class="sc reveal" style="font-size:52px;margin-top:10px">With love,</p>
+      <p class="sc reveal" style="font-size:40px">The Family</p>
+    </section>
+  </main>
+</div>
+
+<!-- FLOATING EXTRAS -->
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<button class="fab" id="songBtn" type="button" aria-label="Turn the song on or off" hidden>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V6l10-2v12M9 18a3 3 0 11-6 0 3 3 0 016 0zM19 16a3 3 0 11-6 0 3 3 0 016 0z"/>
+    <path id="songSlash" d="M3 21L21 3"/>
+  </svg>
+</button>
+
+<script src="song-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

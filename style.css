@@ -1,0 +1,871 @@
+:root {
+  --green: #5E6B49;
+  --deep: #3F4A2E;
+  --cream: #F6F1E3;
+  --lime: #E4EDC4;
+  --heart: #C2D58A;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #2E3524;
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden
+}
+
+[hidden] {
+  display: none !important
+}
+
+h1,
+h2,
+p {
+  margin: 0
+}
+
+img {
+  max-width: 100%
+}
+
+a {
+  text-decoration: none
+}
+
+/* blurred photo background */
+.bgfx {
+  position: fixed;
+  inset: -60px;
+  background: url(assets/images/family.jpg) center/cover;
+  filter: blur(18px) brightness(.5);
+  z-index: -1
+}
+
+.col {
+  position: relative;
+  width: min(430px, 100%);
+  background: var(--green);
+  overflow: hidden;
+  box-shadow: 0 0 60px rgba(0, 0, 0, .45)
+}
+
+/* type */
+.sc {
+  font: 400 44px/1.1 'Pinyon Script', cursive
+}
+
+.sc.gold {
+  color: var(--lime);
+  font-size: 58px
+}
+
+.t {
+  font: 500 17px/1.55 'Cormorant Garamond', serif
+}
+
+.narrow {
+  max-width: 300px
+}
+
+.cap {
+  font: 500 12px 'Cormorant Garamond', serif;
+  letter-spacing: .32em;
+  text-transform: uppercase
+}
+
+.dim {
+  opacity: .85
+}
+
+.line,
+.line * {
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 28px;
+  border: 1px solid var(--cream);
+  border-radius: 14px;
+  color: var(--cream);
+  font: 500 14px 'Cormorant Garamond', serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: background .3s
+}
+
+.btn:hover {
+  background: rgba(246, 241, 227, .14)
+}
+
+.btn.full {
+  width: 100%
+}
+
+.btn.solid {
+  background: var(--cream);
+  color: var(--deep)
+}
+
+.btn.solid:hover {
+  background: #fff
+}
+
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px
+}
+
+/* cover */
+.cover {
+  min-height: 100vh;
+  padding: 70px 28px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  text-align: center
+}
+
+.cover .sc {
+  font-size: 52px
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 260px
+}
+
+.envelope svg {
+  position: absolute;
+  inset: 0
+}
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 92px;
+  margin-left: -46px;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, #E2B497, #B87F5E);
+  color: #4A2E1E;
+  font: 600 13px 'Cormorant Garamond', serif;
+  letter-spacing: .1em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .35), inset 0 0 0 5px rgba(255, 255, 255, .18);
+  animation: pulse 2.2s ease-in-out infinite
+}
+
+.cover.leaving {
+  opacity: 0;
+  transition: opacity .8s
+}
+
+/* photo block */
+.photo {
+  position: relative;
+  height: 640px;
+  margin-top: 44px;
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 95% 98%, 90% 95%, 84% 99%, 78% 96%, 70% 99%, 62% 95%, 55% 98%, 47% 96%, 40% 99%, 32% 95%, 25% 98%, 18% 96%, 10% 99%, 5% 96%, 0 99%)
+}
+
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 70%
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(30, 38, 22, .55), rgba(30, 38, 22, .1) 40%, rgba(30, 38, 22, .55))
+}
+
+.photo-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 34px 0 50px;
+  text-align: center
+}
+
+.bigdate {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.bigdate span {
+  font: 400 78px/1 Italiana, serif
+}
+
+.bigdate i {
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: var(--cream);
+  margin: 12px 0
+}
+
+.bigdate i:last-child {
+  margin-bottom: 0
+}
+
+/* sections */
+.sect {
+  padding: 50px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px
+}
+
+.center {
+  text-align: center
+}
+
+.namecard {
+  width: 100%;
+  margin-top: 10px;
+  padding: 46px 26px;
+  border: 2px solid var(--cream);
+  outline: 1px solid rgba(246, 241, 227, .5);
+  outline-offset: -10px;
+  border-radius: 70px 70px 130px 130px/60px 60px 110px 110px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  background: rgba(0, 0, 0, .08)
+}
+
+.smalldate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px
+}
+
+.smalldate span {
+  font: 400 40px/1.1 Italiana, serif
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+  row-gap: 12px;
+  margin-top: 10px
+}
+
+.week .cap {
+  letter-spacing: .1em
+}
+
+.day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font: 500 18px 'Cormorant Garamond', serif
+}
+
+.day span {
+  position: relative
+}
+
+.day svg {
+  position: absolute;
+  animation: beat 1.4s ease-in-out infinite
+}
+
+.day.hit span {
+  color: var(--deep)
+}
+
+.venue {
+  font: 600 26px 'Cormorant Garamond', serif;
+  letter-spacing: .06em;
+  text-transform: uppercase
+}
+
+/* timeline */
+.timeline-sect {
+  padding: 50px 0 20px
+}
+
+.timeline {
+  position: relative;
+  height: 820px
+}
+
+.timeline .path {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 820px
+}
+
+.stop {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 6px
+}
+
+.stop b {
+  font: italic 500 26px 'Cormorant Garamond', serif
+}
+
+.stop span {
+  font: 500 20px 'Cormorant Garamond', serif
+}
+
+.draw {
+  stroke-dasharray: 1;
+  animation: draw 4s ease forwards
+}
+
+/* countdown */
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%
+}
+
+.timer div {
+  padding: 12px 0;
+  border: 1px solid rgba(246, 241, 227, .7);
+  border-radius: 12px
+}
+
+.timer strong {
+  display: block;
+  font: 500 30px/1 Italiana, serif
+}
+
+.timer .cap {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .18em;
+  margin-top: 6px
+}
+
+/* closing */
+.closing {
+  padding-bottom: 80px
+}
+
+.closing img {
+  width: 230px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 115px 115px 14px 14px;
+  border: 1px solid var(--cream);
+  margin-bottom: 12px
+}
+
+/* floating hearts + buttons */
+.hearts {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(430px, 100vw);
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5
+}
+
+.fh {
+  position: absolute;
+  bottom: -30px;
+  color: var(--lime);
+  opacity: 0;
+  animation: floatUp linear infinite
+}
+
+.fab {
+  position: fixed;
+  right: max(14px, calc(50% - 201px));
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--cream);
+  background: var(--green);
+  color: var(--cream);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
+  z-index: 20
+}
+
+#songBtn {
+  bottom: 82px
+}
+
+.fab.light {
+  background: var(--cream);
+  color: var(--deep)
+}
+
+.fab.on #songSlash {
+  display: none
+}
+
+/* scroll progress bar + scroll hint */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--lime);
+  z-index: 30;
+  box-shadow: 0 0 8px rgba(228, 237, 196, .7)
+}
+
+.scrollhint {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: nudge 1.8s ease-in-out infinite;
+  transition: opacity .5s
+}
+
+.scrollhint svg {
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+
+.scrollhint.gone {
+  opacity: 0
+}
+
+@keyframes nudge {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0)
+  }
+
+  50% {
+    transform: translate(-50%, 8px)
+  }
+}
+
+/* our story: scroll road map */
+.story {
+  padding: 50px 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center
+}
+
+.story .sc,
+.story .t {
+  padding: 0 28px
+}
+
+.road {
+  position: relative;
+  width: 100%;
+  height: 1700px;
+  margin: 10px 0 44px
+}
+
+.roadsvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible
+}
+
+.roadsvg path {
+  fill: none;
+  stroke-linecap: round
+}
+
+.roadsvg .base path {
+  stroke: rgba(246, 241, 227, .32);
+  stroke-width: 2;
+  stroke-dasharray: 3 9
+}
+
+.roadsvg .prog path {
+  stroke: var(--lime);
+  stroke-width: 3;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1
+}
+
+.person {
+  position: absolute;
+  top: 4px;
+  width: 46%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px
+}
+
+.person.him {
+  left: 24.4%
+}
+
+.person.her {
+  left: 75.6%
+}
+
+.person svg {
+  width: 40px;
+  height: 64px
+}
+
+.person .nm {
+  font: 400 36px/1 'Pinyon Script', cursive;
+  color: var(--lime)
+}
+
+.person p {
+  font: 500 15px/1.35 'Cormorant Garamond', serif
+}
+
+.walker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 1px rgba(246, 241, 227, .55);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3
+}
+
+.walker svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible
+}
+
+.walker svg.line,
+.walker svg.line * {
+  stroke-width: 2.8
+}
+
+.walker.couple {
+  width: 68px;
+  height: 68px
+}
+
+.meetheart {
+  position: absolute;
+  left: 50%;
+  top: 462px;
+  width: 30px;
+  height: 28px;
+  margin-left: -15px;
+  color: var(--heart);
+  transform: scale(0);
+  transition: transform .7s cubic-bezier(.3, 1.7, .5, 1);
+  z-index: 3
+}
+
+.meetheart.on {
+  transform: scale(1)
+}
+
+.node {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+  background: var(--green);
+  transition: background .5s, transform .5s;
+  z-index: 2
+}
+
+.node.on {
+  background: var(--lime);
+  transform: scale(1.25)
+}
+
+.mcard {
+  position: absolute;
+  width: 38%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .9s ease, transform .9s ease
+}
+
+.mcard.on {
+  opacity: 1;
+  transform: none
+}
+
+.mcard.r {
+  left: 60%;
+  text-align: left
+}
+
+.mcard.l {
+  left: 3%;
+  text-align: right
+}
+
+.mcard .cap {
+  display: block;
+  color: var(--lime);
+  font-size: 11px;
+  letter-spacing: .2em;
+  margin-bottom: 4px
+}
+
+.mcard b {
+  display: block;
+  font: italic 500 25px/1.1 'Cormorant Garamond', serif;
+  margin-bottom: 4px
+}
+
+.mcard .d {
+  display: block;
+  font: 500 16px/1.35 'Cormorant Garamond', serif
+}
+
+.mcard .popper {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px
+}
+
+.mcard.l .popper {
+  margin-left: auto
+}
+
+.mcard.on .popper {
+  animation: popin .9s cubic-bezier(.3, 1.6, .5, 1) both
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  z-index: 4;
+  pointer-events: none
+}
+
+@keyframes popin {
+  0% {
+    transform: scale(.4) rotate(-25deg)
+  }
+
+  100% {
+    transform: none
+  }
+}
+
+/* animation */
+.kb {
+  animation: zoom 14s ease-in-out infinite alternate
+}
+
+.float {
+  animation: bob 4s ease-in-out infinite
+}
+
+.beat {
+  animation: beat 1.4s ease-in-out infinite
+}
+
+.rise {
+  animation: rise 1s ease both
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.08)
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px)
+  }
+
+  to {
+    opacity: 1;
+    transform: none
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1)
+  }
+
+  to {
+    transform: scale(1.13)
+  }
+}
+
+@keyframes bob {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-8px)
+  }
+}
+
+@keyframes beat {
+
+  0%,
+  100% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.18)
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1
+  }
+
+  to {
+    stroke-dashoffset: 0
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0
+  }
+
+  10% {
+    opacity: .75
+  }
+
+  100% {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none
+  }
+
+  .draw {
+    stroke-dasharray: none
+  }
+
+  .hearts {
+    display: none
+  }
+
+  .scrollhint {
+    animation: none
+  }
+
+  .mcard {
+    opacity: 1;
+    transform: none
+  }
+}
