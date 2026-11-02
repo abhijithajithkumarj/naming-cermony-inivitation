@@ -2,7 +2,7 @@
 const CONFIG = {
   babyName: "",
   groomName: "Arjun",
-  brideName: "Anjana",
+  brideName: "Ajanya",
   groomAbout: "",
   brideAbout: "",
 
